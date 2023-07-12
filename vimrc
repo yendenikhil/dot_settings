@@ -25,6 +25,8 @@ set ignorecase
 set smartcase
 set infercase 
 
+set re=0                " automatically select the regexpengine :help 're' to use latest engine
+
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 set ruler               " show the ruler to know which row and column you are on
@@ -63,7 +65,7 @@ noremap <leader>y "+y
 noremap <leader>p "+p
 
 " toggle relative and absolute numbering.
-nnoremap <F8> :set relativenumber!<cr>
+" nnoremap <F8> :set relativenumber!<cr>
 
 " autocomplete the common things.
 " inoremap (<cr> (<cr>)<esc>ko
@@ -91,11 +93,12 @@ augroup customfiletype
   autocmd BufWritePost .vimrc source %
 augroup END
 
+
 " -------------------------------------------------------------
-" Setting up theme
+" add theme
 " -------------------------------------------------------------
-if has("gui_running")
-  set guifont=Source_Code_Pro:h11:cANSI:qDRAFT
-  set background=light
-  colorscheme solarized
-endif
+packadd! sonokai
+packadd! molokai
+syntax enable
+colorscheme molokai
+" colorscheme molokai
